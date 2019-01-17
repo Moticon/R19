@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.moticon.support.BootLoader;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        new BootLoader(this);
     }
 
     @Override

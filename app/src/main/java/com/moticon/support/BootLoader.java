@@ -37,5 +37,7 @@ public class BootLoader extends Observable {
         UIManager.getInstance().displayMessage("The router is up, IP Address is "+
                 Constants.IP_ADDRESS);
 
+        UIManager.getInstance().displayMessage("Resulting String is " +
+                Utilities.padHexString("ABC", 3));
     }
 }
