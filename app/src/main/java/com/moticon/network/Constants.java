@@ -10,19 +10,21 @@ import java.util.Enumeration;
 
 public class Constants {
 
+    // dataheader constants
+    public static final int LL2P_DESTINATION_ADDRESS = 0x100;
+    public static final int LL2P_SOURCE_ADDRESS =      0x101;
     // the IP address of this system will be stored here in dotted decimal notation
-    public static final String IP_ADDRESS;
+    public static String IP_ADDRESS ;
     // These are strings used in debugging messages or messages sent to the log file.
     public static final String routerName = "MoticonOne";
     public static final String logTag = "MoticonOne: ";
 
-    static {
-        IP_ADDRESS = getLocalIpAddress();
-        Log.i(Constants.logTag, "IP Address is "+IP_ADDRESS); // this will show up in the log file
-    }
+    static { IP_ADDRESS = getLocalIpAddress();}
+
 
     public Constants(){
-        getLocalIpAddress();
+        //IP_ADDRESS = getLocalIpAddress();
+        //Log.i(Constants.logTag, "IP Address is "+IP_ADDRESS); // this will show up in the log file
     }
 
     /*
@@ -34,6 +36,7 @@ public class Constants {
     private static String getLocalIpAddress() {
         //String address= null;
         try {
+            Enumeration<NetworkInterface> xx = NetworkInterface.getNetworkInterfaces();
             for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
                 NetworkInterface intf = en.nextElement();
                 for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {

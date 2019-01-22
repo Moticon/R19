@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.moticon.UI.UIManager;
+import com.moticon.network.Constants;
 import com.moticon.support.BootLoader;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,14 +22,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         new BootLoader(this);
     }
 
@@ -44,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        if (id == R.id.show_IP_Address_menuItem){
+            UIManager.getInstance().displayMessage("IP address is " +
+                    Constants.IP_ADDRESS);
+        }
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
